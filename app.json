@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "ProductsApp",
+    "slug": "rn-clean-arch-expo-products-app",
+    "scheme": "productsapp",
+    "platforms": ["ios", "android"],
+    "android": {
+      "package": "com.anonymous.rncleanarchexpoproductsapp"
+    },
+    "ios": {
+      "bundleIdentifier": "com.anonymous.rncleanarchexpoproductsapp"
+    },
+    "plugins": ["expo-router"],
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"]
+  }
+}
