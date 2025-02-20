@@ -25,17 +25,6 @@ This project is built using **React Native with Expo** and follows **Clean Archi
 ## Project Architecture
 
 The project is structured following **Clean Architecture**, ensuring separation of concerns between different layers:
-src/
-│── domain/          # Business logic layer (use cases & models)
-│   ├── models/      # Data structures (Product, Category)
-│   ├── usecases/    # Business logic (fetch products, fetch categories)
-│── data/            # API layer (fetching and response models)
-│   ├── product/     # Product API responses
-│   ├── category/    # Category API responses
-│   ├── apiConfig.ts # API URLs & config
-│── presentation/    # UI layer (screens & components)
-│── native/          # Fabric Native Modules (iOS Calendar Integration)
-app/                 # Navigation & deep linking
 
 - **Domain Layer:** Contains models and use cases, keeping business logic separate.
 - **Data Layer:** Responsible for API requests and response transformations.
@@ -92,5 +81,3 @@ adb shell am start -a android.intent.action.VIEW -d “productsapp://product/1�
 - This project is configured with **Expo Prebuild**, meaning it generates native code and should not be run inside Expo Go.
 - Fabric Native Module is implemented **only for iOS** for now.
 - The `prebuild` step is **mandatory** for the project to work properly.
-
----
