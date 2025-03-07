@@ -82,6 +82,7 @@ This project uses **Jest** for unit testing and **React Native Testing Library**
 
 ### **Testing Tools**
 Unit testing: [Jest](https://jestjs.io/)
+
 Component testing: [React Native Testing Library](https://callstack.github.io/react-native-testing-library/)
 
 ### **Running Unit & Component Tests**
