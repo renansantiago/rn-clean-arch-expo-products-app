@@ -76,6 +76,20 @@ xcrun simctl openurl booted “productsapp://product/1”
 adb shell am start -a android.intent.action.VIEW -d “productsapp://product/1”
 ```
 
+## Testing
+
+This project uses **Jest** for unit testing and **React Native Testing Library** for component testing.
+
+### **Testing Tools**
+Unit testing: [Jest](https://jestjs.io/)
+Component testing: [React Native Testing Library](https://callstack.github.io/react-native-testing-library/)
+
+### **Running Unit & Component Tests**
+Run all tests:
+```bash
+npm run test
+```
+
 ## Notes
 
 - This project is configured with **Expo Prebuild**, meaning it generates native code and should not be run inside Expo Go.

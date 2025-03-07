@@ -12,6 +12,9 @@ web-build/
 ios/
 android/
 
+# Allow tracking of CalendarReminder native module
+!src/native/CalendarReminder/ios/
+
 # Native
 *.orig.*
 *.jks

@@ -11,10 +11,7 @@
     "paths": {
       "@components/*": ["src/presentation/components/*"],
       "@screens/*": ["src/presentation/product/screens/*"],
-      "@data/*": ["src/data/*"],
-      "@domain/*": ["src/domain/*"],
-      "@context/*": ["src/context/*"],
-      "@utils/*": ["src/utils/*"]
+      "@*": ["src/*"]
     }
   },
   "exclude": ["node_modules", "babel.config.js", "metro.config.js"],

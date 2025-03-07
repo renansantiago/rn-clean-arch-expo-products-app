@@ -7,9 +7,12 @@ import {
   ActivityIndicator,
   StyleSheet,
   ScrollView,
+  Alert,
+  TouchableOpacity,
 } from "react-native";
 import { getProductById } from "../../../data/product/productRepository";
 import { Product } from "@domain/product/Product";
+import { addPurchaseReminder } from "@domain/product/productUseCase";
 
 export default function ProductDetailScreen() {
   const { id } = useLocalSearchParams();
@@ -34,6 +37,23 @@ export default function ProductDetailScreen() {
     }
     fetchProduct();
   }, [id]);
+
+  const handleAddReminder = async () => {
+    try {
+      const { eventId } = await addPurchaseReminder(
+        product?.title ?? "",
+        product?.description ?? ""
+        // Date is optional; if omitted, defaults to current date + 7 days
+      );
+      Alert.alert("Success", `Reminder created! Event ID: ${eventId}`);
+    } catch (error) {
+      if (error instanceof Error) {
+        Alert.alert("Error", error.message || "Failed to create reminder");
+      } else {
+        Alert.alert("Error", "Failed to create reminder");
+      }
+    }
+  };
 
   if (loading) {
     return (
@@ -64,6 +84,12 @@ export default function ProductDetailScreen() {
         {product.stock > 0 ? "In Stock" : "Out of Stock"}
       </Text>
       <Text style={styles.description}>{product.description}</Text>
+      <TouchableOpacity
+        style={styles.reminderButton}
+        onPress={handleAddReminder}
+      >
+        <Text style={styles.reminderButtonText}>Add Reminder</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 }
@@ -121,5 +147,20 @@ const styles = StyleSheet.create({
     fontSize: 14,
     textAlign: "center",
     marginBottom: 16,
+  },
+
+  reminderButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    backgroundColor: "#6200ea",
+    borderRadius: 6,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+  },
+  reminderButtonText: {
+    color: "#fff",
+    fontSize: 14,
+    fontWeight: "bold",
   },
 });

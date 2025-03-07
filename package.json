@@ -30,12 +30,16 @@
   "main": "expo-router/entry",
   "scheme": "productsapp",
   "scripts": {
-    "build": "webpack",
-    "dev": "set NODE_ENV=development&& webpack",
-    "prepublishOnly": "webpack",
-    "test": "echo \"No tests exist.\" && exit 0",
+    "start": "expo start",
     "android": "expo run:android",
-    "ios": "expo run:ios"
+    "ios": "expo run:ios",
+    "test": "jest --watchAll",
+    "postinstall": "cp -R src/native/CalendarReminder/ios ios/CalendarReminder/"
+  },
+  "codegenConfig": {
+    "name": "CalendarReminderSpec",
+    "type": "modules",
+    "jsSrcsDir": "src/specs"
   },
   "dependencies": {
     "@react-native-picker/picker": "^2.11.0",
@@ -59,17 +63,24 @@
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-flow-strip-types": "^7.26.5",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.26.9",
+    "@testing-library/react-native": "^13.2.0",
+    "@types/jest": "^29.5.14",
     "@types/react": "^18.3.18",
     "@types/react-native-vector-icons": "^6.4.18",
     "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^29.7.0",
     "babel-loader": "^8.0.0-beta.6",
+    "babel-plugin-inline-import": "^3.0.0",
+    "babel-plugin-module-resolver": "^5.0.2",
+    "jest-expo": "^52.0.5",
     "react": "18.3.1",
     "react-router": "^4.3.1",
-    "typescript": "^5.7.3",
-    "webpack": "^4.23.1",
-    "webpack-cli": "^3.1.2"
+    "react-test-renderer": "^18.3.1",
+    "typescript": "^5.7.3"
   },
   "private": true
 }
